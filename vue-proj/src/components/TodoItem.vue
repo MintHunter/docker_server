@@ -1,11 +1,10 @@
 <template>
     <li>
-        <div>time: {{newItem.time}}</div>
-        <div>disclaimer: {{newItem.disclaimer}}</div>
         <div>chartName: {{newItem.chartName}}</div>
-        <div>bpi: {{newItem.bpi}}</div>
-        <div>bpi=>USD: {{newItem.bpi.USD}}</div>
-        <div>bpi=>EUR: {{newItem.bpi.EUR}}</div>
+        <div>USD: {{newItem.bpi.USD.rate}}</div>
+        <div>EUR: {{newItem.bpi.EUR.rate}}</div>
+        <div>updated time: {{newItem.time.updated}}</div>
+        <div>disclaimer: {{newItem.disclaimer}}</div>
 
     </li>
 </template>
@@ -17,5 +16,7 @@ export default {
 
         }
     },
+
 }
+
 </script>
