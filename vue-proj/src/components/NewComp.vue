@@ -1,5 +1,5 @@
 <template>
-<div class="test">test</div>
+<div class="test">CoinDesk</div>
 </template>
 
 <script>
