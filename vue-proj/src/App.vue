@@ -1,16 +1,22 @@
 <template>
   <div id="app">
-
+<h1>1st Application</h1>
+    <hr>
+<NewComp />
+    <hr>
+<TodoList />
   </div>
 </template>
 
 <script>
-
+import NewComp from '@/components/NewComp'
+import TodoList from '@/components/TodoList'
 
 export default {
   name: 'App',
   components: {
-
+    NewComp,
+    TodoList
   }
 }
 </script>
