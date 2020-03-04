@@ -13,7 +13,8 @@
   <!--  <span> {{fullString}}   </span>
     <hr>-->
 	<component-name
-    :array = "messages"
+            v-for="message in messages"
+            :value = "message.string"
     ></component-name>
 
 </div>
@@ -27,22 +28,15 @@ Vue.component('component-name',{
             someWord : 1213,
         }
     },
-    props: ['array',],
-    template:'<span @click = "lol">{{objParse}}</span>',
+    props: ['value',],
+    template:'<span @click = "lol">{{value}}</span>',
     computed: {  //Кешируются
-        objParse : function (e) {
-           this.array.forEach((val)=>{
-               if(val.first){
-                   return val.first;
-               }
 
-           })
-        }
     },
     methods:{  // Всегда запускаются прои обращении к методу , а так computed и method , похожи
         lol : function () {
             this.count++;
-        }
+        },
     },
     watch:{
         /*Watch стоит использовать при “дорогих” операциях вычислений,
@@ -55,8 +49,8 @@ Vue.component('component-name',{
 		el: "#app",
 		data:{
             messages: [
-                {first: "hello im string"},
-                {second: " sec string"},
+                {string: "hello im string"},
+                {string: " sec string"},
             ]
 		},
         computed: {
