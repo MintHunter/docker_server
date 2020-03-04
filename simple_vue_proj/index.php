@@ -27,12 +27,12 @@ Vue.component('component-name',{
         }
     },
     props: ['comp2',"comp",],
-    template:'<span @click = "nigga">{{someWord}}{{comp2}} {{comp}}</span>',
+    template:'<span @click = "lol">{{someWord}}{{comp2}} {{comp}}</span>',
     computed: {  //Кешируются
 
     },
     methods:{  // Всегда запускаются прои обращении к методу
-        nigga : function () {
+        lol : function () {
             this.count++;
         }
     }
