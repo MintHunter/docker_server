@@ -31,7 +31,7 @@ Vue.component('component-name',{
     computed: {  //Кешируются
 
     },
-    methods:{  // Всегда запускаются прои обращении к методу
+    methods:{  // Всегда запускаются прои обращении к методу , а так computed и method , похожи
         lol : function () {
             this.count++;
         }
