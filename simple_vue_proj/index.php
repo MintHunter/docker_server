@@ -9,36 +9,42 @@
     <title>Document</title>
 </head>
 <body>
-<div id="app-2">
-  <span v-for="message of messages" @click="changeFunc(message,newClass)" v-bind:style="newClass">
-    {{message.name}}
-  </span>
+<div id="app">
+	<component-name
+            :comp ="message"
+            :comp2 = "message1"
+    ></component-name>
+
 </div>
 
 <script>
-	var app2 = new Vue({
-		el: '#app-2',
+Vue.component('component-name',{
+    data: function () { // В компоненте дата всегда функция, дял того, чтобы избежать
+                        // присвоения переменной например count нескольким экземплярам <component-name />
+        return {
+            count: 0,
+            someWord : 1213,
+        }
+    },
+    props: ['comp2',"comp",],
+    template:'<span @click = "nigga">{{someWord}}{{comp2}} {{comp}}</span>',
+    computed: {  //Кешируются
+
+    },
+    methods:{  // Всегда запускаются прои обращении к методу
+        nigga : function () {
+            this.count++;
+        }
+    }
+
+});
+	var app = new Vue({
+		el: "#app",
 		data:{
-		    messages:[
-				{name:'try it'},
-				{name:'try it'},
-			],
-			newClass: {
-		        color:'red',
-				'font-size':'10px',
-
-			}
+            message1: "first message ",
+		    message : "i'm string!"
 		},
-		methods:{
-            changeFunc:(data,className)=>{
-                data.name = Math.round(Math.random()*1000);
-                className.color = 'green';
-                className['font-size'] = Math.round(Math.random()*100)+"px";
-                className['text-align'] = 'center';
-
-			}
-		}
-	})
+	});
 </script>
 <style>
 	span{
