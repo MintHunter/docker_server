@@ -10,9 +10,10 @@
 </head>
 <body>
 <div id="app">
+  <!--  <span> {{fullString}}   </span>
+    <hr>-->
 	<component-name
-            :comp ="message"
-            :comp2 = "message1"
+    :array = "messages"
     ></component-name>
 
 </div>
@@ -26,10 +27,17 @@ Vue.component('component-name',{
             someWord : 1213,
         }
     },
-    props: ['comp2',"comp",],
-    template:'<span @click = "lol">{{someWord}}{{comp2}} {{comp}}</span>',
+    props: ['array',],
+    template:'<span @click = "lol">{{objParse}}</span>',
     computed: {  //Кешируются
+        objParse : function (e) {
+           this.array.forEach((val)=>{
+               if(val.first){
+                   return val.first;
+               }
 
+           })
+        }
     },
     methods:{  // Всегда запускаются прои обращении к методу , а так computed и method , похожи
         lol : function () {
@@ -46,10 +54,27 @@ Vue.component('component-name',{
 	var app = new Vue({
 		el: "#app",
 		data:{
-            message1: "first message ",
-		    message : "i'm string!"
+            messages: [
+                {first: "hello im string"},
+                {second: " sec string"},
+            ]
 		},
+        computed: {
+		    fullString:{
+		        get: function () {
+                    return this.message1 + ' ' + this.message;
+                },
+                set: function (newValue) {
+                    var piesesOfStr = newValue.split(',');
+                    this.message1 = piesesOfStr[0];
+                    this.message = piesesOfStr[1];
+                }
+            },
+
+        }
+
 	});
+
 </script>
 <style>
 	span{
