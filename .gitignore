@@ -1,2 +1,2 @@
-/database/data/*
-logs/nginx/*
+database/data
+logs/
