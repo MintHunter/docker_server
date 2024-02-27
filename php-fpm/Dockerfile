@@ -12,6 +12,7 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
 
-CMD composer install ; wait-for-it database:3306 -- bin/console doctrine:migrations:migrate ;  php-fpm 
+#CMD composer install ; wait-for-it database:3306 -- bin/console doctrine:migrations:migrate ;  php-fpm ; php bin/console cache:clear
+CMD  wait-for-it database:3306 -- bin/console doctrine:migrations:migrate ;  php-fpm ; php bin/console cache:clear;
 
 EXPOSE 9000
